@@ -5,7 +5,7 @@
   width: 100%;
   display: grid;
   min-height: 100vh;
-  grid-template-rows: 15% 50% auto;
+  grid-template-rows: 15% 45% auto;
   grid-template-columns: 10% 80% 10%; 
 }
 
@@ -62,6 +62,7 @@
   & .button {
     display: flex;
     align-items: center;
+    font-family: "Share Tech", sans-serif;
 
     & .buttonText {
       font-family: "Share Tech", sans-serif;
