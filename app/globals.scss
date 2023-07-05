@@ -1,0 +1,13 @@
+@use "../public/static/styles/colors";
+@use "../public/static/styles/responsive";
+@use "../public/static/styles/fonts" ;
+
+
+html,
+
+body {
+  margin: 0px;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
