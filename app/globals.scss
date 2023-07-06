@@ -115,6 +115,8 @@ p {
   line-height: 150%;
   color: $secondary-color;
   margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
 
   @include tablet {
     margin-top: 40px;
