@@ -26,11 +26,7 @@ export default function Home() {
       </div>
       <div className={styles.abstract}>
         <p>
-          ¡Bienvenido/a a mi portafolio! Aquí encontrarás una amplia variedad de
-          disciplinas, pero mi enfoque
-          <wbr /> principal se centra en el diseño gráfico e industrial, así
-          como en el desarrollo de software, especialmente en el frontend. Te
-          invito a visitar mis proyectos
+        ¡Bienvenido/a a mi portafolio! Aquí encontrarás una amplia variedad de disciplinas. Mi enfoque principal se centra en el diseño gráfico e industrial, así como también en el desarrollo de software, especialmente Frontend. Te invito a visitar mis proyectos.
         </p>
         <div className={styles.button}>
           <a className={styles.buttonText} href="/static/docs/portafolio.pdf" download>
