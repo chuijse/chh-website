@@ -1,5 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./_page.module.scss";
+//import portfolio from ""
+//import cv from "../public/static/docs/CV.pdf"
 
 export default function Home() {
   return (
@@ -30,16 +33,30 @@ export default function Home() {
           invito a visitar mis proyectos
         </p>
         <div className={styles.button}>
-          <a className={styles.buttonText} href="http://chuijse.github.io">
+          <a className={styles.buttonText} href="/static/docs/portafolio.pdf" download>
             Descargar Portafolio
-          </a>
-          <div className={styles.flecha}>
+          </a>         
+           <div className={styles.flecha}>
             <Image
               fill
               src="/static/images/arrow-small.svg"
               alt="flecha de botton"
             />
           </div>
+          
+        </div>
+        <div className={styles.button}>
+          <a className={styles.buttonText} href="/static/docs/CV.pdf" download>
+            CV
+          </a>         
+           <div className={styles.flecha}>
+            <Image
+              fill
+              src="/static/images/arrow-small.svg"
+              alt="flecha de botton"
+            />
+          </div>
+          
         </div>
       </div>
     </main>
