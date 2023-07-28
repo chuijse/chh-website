@@ -21,38 +21,43 @@ export default function Home() {
           src="/static/images/perfil-website.jpg"
           fill
           alt="Foto de perfil cristian Huijse heise"
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          style={{ objectFit: "cover" }}
         />
       </div>
       <div className={styles.abstract}>
         <p>
-        ¡Bienvenido/a a mi portafolio! Aquí encontrarás una amplia variedad de disciplinas. Mi enfoque principal se centra en el diseño gráfico e industrial, así como también en el desarrollo de software, especialmente Frontend. Te invito a visitar mis proyectos.
+          ¡Bienvenido/a a mi portafolio! Aquí encontrarás una amplia variedad de
+          disciplinas. Mi enfoque principal se centra en el diseño gráfico e
+          industrial, así como también en el desarrollo de software,
+          especialmente Frontend. Te invito a visitar mis proyectos.
         </p>
         <div className={styles.button}>
-          <a className={styles.buttonText} href="/static/docs/portafolio.pdf" download>
+          <a
+            className={styles.buttonText}
+            href="/static/docs/portafolio.pdf"
+            download
+          >
             Descargar Portafolio
-          </a>         
-           <div className={styles.flecha}>
+          </a>
+          <div className={styles.flecha}>
             <Image
               fill
               src="/static/images/arrow-small.svg"
               alt="flecha de botton"
             />
           </div>
-          
         </div>
         <div className={styles.button}>
           <a className={styles.buttonText} href="/static/docs/CV.pdf" download>
             CV
-          </a>         
-           <div className={styles.flecha}>
+          </a>
+          <div className={styles.flecha}>
             <Image
               fill
               src="/static/images/arrow-small.svg"
               alt="flecha de botton"
             />
           </div>
-          
         </div>
       </div>
     </main>
