@@ -1,7 +1,28 @@
 import "./globals.scss";
-import { Inter } from "next/font/google";
+/*import { Share_Tech } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const share_tech = Share_Tech({
+  weight: ["400"],
+  style: ["normal"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const ibm_plex_sans = IBM_Plex_Sans({
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const ibm_plex_mono = IBM_Plex_Mono({
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});*/
 
 export const metadata = {
   title: "CHH | Portfolio",
@@ -26,7 +47,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className={inter.className}>{children}</body>
+      <body
+      //className={`${share_tech.className} ${ibm_plex_sans.className} ${ibm_plex_mono}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
