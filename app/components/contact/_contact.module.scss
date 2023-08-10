@@ -4,29 +4,204 @@
 @use "../../../public/static/styles/animation";
 
 .root {
-    position: relative;
-    width: 100%;
-    display: grid;
-    height: 100vh;
-    border: 1px solid red;
+  position: relative;
+  width: 100%;
+  display: grid;
+  height: 100vh;
+  //border: 1px solid red;
+
+  @include phone {
+    grid-template-rows: 20vh 40vh auto;
+    grid-template-columns: 10% 80% 10%;
+  }
+
+  @include tablet {
+    grid-template-rows: 25vh 45vh auto;
+    grid-template-columns: 17.5% 65% 17.5%;
+  }
+
+  @include desktop {
+    grid-template-rows: 25vh min-content min-content;
+    grid-template-columns: 10% 45% 35% 10%;
+  }
+
+  @include large {
+    grid-template-rows: 20vh 60vh 20vh;
+    grid-template-columns: 12.5% 42.5% 32.5% 12.5%;
+  }
+}
+
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  //border: 1px solid red;
+
+  @include desktop {
+    //align-items: none;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+}
+
+.title {
   
-    @include phone {
-      grid-template-rows: 20vh 40vh auto;
-      grid-template-columns: 10% 80% 10%;
+  @include animation.from-bottom {
+    animation-delay: 0.5s;
+  }
+}
+
+.description {
+  //border: 1px solid blue;
+  margin-left: 0px;
+  margin-top: 10px;
+  @include animation.from-top{ 
+    animation-delay: 1s;
+  }
+}
+
+
+
+@mixin input {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+  width: 100%;
+  //border: 1px solid blue;
+  grid-column: 1 / -1;
+  
+  
+  input {
+    border: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    padding-bottom: 5px;
+    background-color: white;
+    //transition: border-color 0.5s;
+    border-bottom-style: solid ;
+    border-bottom-width: 2px;
+    border-color: $black-color;
+
+    &::placeholder {
+      font-size: 16px;
+      transition: color 0.5s;
+      font-family: "IBM Plex Mono", sans-serif;
     }
-  
-    @include tablet {
-      grid-template-rows: 25vh 45vh auto;
-      grid-template-columns: 17.5% 65% 17.5%;
+    
+
+    &:focus {
+      outline: none;
+      border: none;
+      font-style: normal;
+      border-bottom-style: solid ;
+      border-bottom-width: 2px;
+      border-color: $primary-color;
+
+      &::placeholder {
+        color: $primary-color;
+        font-family: "IBM Plex Mono", sans-serif;
+      }
+
     }
-  
-    @include desktop {
-      grid-template-rows: 25vh min-content min-content;
-      grid-template-columns: 10% 45% 35% 10%;
-    }
-  
-    @include large {
-      grid-template-rows: 20vh min-content min-content;
-      grid-template-columns: 12.5% 42.5% 32.5% 12.5%;
+
+    &:placeholder-shown {
+      font-style: italic;
     }
   }
+
+  textarea {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    resize: none;
+    height: min-content;
+    border: none;
+    //background-color: white;
+    transition: border-color 0.5s;
+    border-bottom-style: solid ;
+    border-bottom-width: 2px;
+    border-color: $black-color;
+
+    &::placeholder {
+      font-size: 16px;
+      transition: color 0.3s;
+      font-family: "IBM Plex Mono", sans-serif;
+      font-style: italic;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+      border-bottom-style: solid ;
+      border-bottom-width: 2px;
+      border-color: $primary-color;
+
+      &::placeholder {
+        color: $primary-color;
+        font-family: "IBM Plex Mono", sans-serif;
+      }
+    }
+
+    
+  }
+
+  label {
+    padding-top: 5px;
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    transition: color 0.5s;
+  }
+
+  input:focus + label {
+    color: $primary-color;
+  }
+
+  textarea:focus + label {
+    color: $primary-color;
+  }
+
+  @content;
+}
+
+
+
+.form {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  //border: 2px solid green;
+  grid-template-columns: 47.5% 47.5%;
+  grid-template-rows: 26% 26% 19% 19% 10% ;
+  column-gap: 5%;
+  
+
+  .input {
+    @include input
+  }
+
+  .input_half {
+    @include input {
+      grid-column: span 1 / span 1;
+    }
+  }
+
+  .input_textarea {
+    @include input {
+      grid-row: 3 / 5;
+      //border: 2px solid green;
+    }
+  }
+
+}
+
+
+
+
+
+
+
