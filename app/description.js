@@ -16,17 +16,18 @@ export default function Description() {
       <div className={styles.imageItem}>
         <Image
           src="/static/images/perfil-website.jpg"
+          priority
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
           alt="Foto de perfil cristian Huijse heise"
           style={{ objectFit: "cover" }}
         />
       </div>
       <div className={styles.abstract}>
         <p>
-          ¡Bienvenido/a a mi portafolio! Aquí encontrarás una amplia variedad de
-          disciplinas. Mi enfoque principal se centra en el diseño gráfico e
-          industrial, así como también en el desarrollo de software,
-          especialmente Frontend. Te invito a visitar mis proyectos.
+          ¡Bienvenido/a a mi portafoli!. Mi enfoque principal se centra en el
+          diseño gráfico e industrial, así como también en el desarrollo de
+          software, especialmente Frontend. Te invito a visitar mis proyectos.
         </p>
         <div className={styles.button}>
           <a
