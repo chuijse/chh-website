@@ -1,5 +1,5 @@
 @mixin from-left {
-  animation: 1s left ease-out;
+  animation: 0.8s left ease-out;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
   visibility: hidden;
@@ -41,7 +41,7 @@
 }
 
 @mixin from-top {
-  animation: 1s top ease-out;
+  animation: 0.8s top ease-out;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
   visibility: hidden;

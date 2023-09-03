@@ -1,0 +1,371 @@
+@use "../../../public/static/styles/colors" as *;
+@use "../../../public/static/styles/responsive" as *;
+@use "../../../public/static/styles/fonts";
+@use "../../../public/static/styles/animation";
+
+.contact-root {
+  position: relative;
+  width: 100%;
+  display: grid;
+  //height: 100vh;
+  //border: 1px solid red;
+
+  @include phone {
+    grid-template-rows: 5vh 80vh 10vh 5vh;
+    grid-template-columns: 10% 80% 10%;
+  }
+
+  @include tablet {
+    grid-template-rows: 10vh 47vh 38vh 5vh;
+    grid-template-columns: 17.5% 65% 17.5%;
+  }
+
+  @include desktop {
+    height: 100%;
+    grid-template-rows: 15vh 75vh 10vh;
+    grid-template-columns: 10% 45% 35% 10%;
+  }
+
+  @include large {
+    grid-template-rows: 20vh 60vh 20vh;
+    grid-template-columns: 12.5% 40% 35% 12.5%;
+  }
+}
+
+.contact-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  @include tablet {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+  @include desktop {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+
+  .contact-title {
+    @include animation.from-bottom {
+      animation-delay: 0.5s;
+    }
+  }
+
+  .contact-description {
+    //border: 1px solid blue;
+    margin-left: 0px;
+    margin-top: 10px;
+    @include animation.from-top{ 
+      animation-delay: 1s;
+    }
+    @include tablet {
+    }
+  }
+  
+}
+
+
+@mixin input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  width: 100%;
+  grid-column: 1 / -1;
+
+  input {
+    border: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    padding-bottom: 5px;
+    background-color: white;
+    //transition: border-color 0.5s;
+    border-bottom-style: solid ;
+    border-bottom-width: 2px;
+    border-color: $black-color;
+    @include tablet {
+      font-size: 21px;
+    }
+    @include desktop {
+      font-size: 21px;
+    }
+    &::placeholder {
+      
+      font-size: 15px;
+      transition: color 0.5s;
+      font-family: "IBM Plex Mono", sans-serif;
+    }
+    &:focus {
+      outline: none;
+      border: none;
+      font-style: normal;
+      border-bottom-style: solid ;
+      border-bottom-width: 2px;
+      border-color: $primary-color;
+      &::placeholder {
+        color: $primary-color;
+        font-family: "IBM Plex Mono", sans-serif;
+      }
+    }
+    &:placeholder-shown {
+      font-style: italic;
+    }
+  }
+  textarea {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    resize: none;
+    height: min-content;
+    border: none;
+    //background-color: white;
+    transition: border-color 0.5s;
+    border-bottom-style: solid ;
+    border-bottom-width: 2px;
+    border-color: $black-color;
+    &::placeholder {
+      font-size: 16px;
+      transition: color 0.3s;
+      font-family: "IBM Plex Mono", sans-serif;
+      font-style: italic;
+    }
+    &:focus {
+      outline: none;
+      border: none;
+      border-bottom-style: solid ;
+      border-bottom-width: 2px;
+      border-color: $primary-color;
+      &::placeholder {
+        color: $primary-color;
+        font-family: "IBM Plex Mono", sans-serif;
+      }
+    }
+  }
+
+  label {
+    padding-top: 6px;
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+    transition: color 0.5s;
+    
+  }
+
+  input:focus + label {
+    color: $primary-color;
+  }
+
+  textarea:focus + label {
+    color: $primary-color;
+  }
+
+  @content;
+}
+
+
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  //gap: 60px;
+  width: 100%;
+  height: 100%;
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  
+
+  @include animation.from-top {
+    animation-delay: 2s;
+  }
+  
+  .input {
+    @include input
+  }
+
+  .input_half {
+    @include input {
+      @include tablet {
+        grid-column: span 1 / span 1;
+      }
+      @include desktop {
+        grid-column: span 1 / span 1;
+      }
+    }
+  }
+
+  .input_textarea {
+    height: 20%;
+    justify-content: flex-end !important;
+    @include input {
+      @include tablet {
+        grid-row: 3 / 5;
+      }
+      @include desktop {
+        grid-row: 3 / 5;
+      }
+      //border: 2px solid green;
+    }
+  }
+
+}
+
+.input_button {
+  cursor: pointer;
+  width: max-content;
+  border: transparent;
+  text-align: right;
+  background-color: transparent;
+  text-transform: uppercase;
+  color: $primary-color;
+  font-family: "Share Tech", monospace;
+  justify-self: end;
+  grid-column: 2 / -1;
+  font-size: 24px;
+  @include large {
+    font-size: 30px;
+  }
+  
+  &::after {
+    content: url("data:image/svg+xml,%3Csvg width='65' height='16' viewBox='0 0 65 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M64.7071 8.70711C65.0976 8.31658 65.0976 7.68342 64.7071 7.29289L58.3431 0.928933C57.9526 0.538408 57.3195 0.538408 56.9289 0.928933C56.5384 1.31946 56.5384 1.95262 56.9289 2.34315L62.5858 8L56.9289 13.6569C56.5384 14.0474 56.5384 14.6805 56.9289 15.0711C57.3195 15.4616 57.9526 15.4616 58.3431 15.0711L64.7071 8.70711ZM8.74228e-08 9.00001L64 9L64 7L-8.74228e-08 7.00001L8.74228e-08 9.00001Z' fill='%23FF722A'/%3E%3C/svg%3E%0A");
+    margin-left: 10px;
+  }
+}
+
+
+.contact-icons-root {
+  position: absolute;
+  justify-self: start;
+  grid-row: 3 / 4;
+  grid-column: 2 / -2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  
+  @include tablet {
+    position: relative;
+    justify-self: auto;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    grid-row: 3 / 4;
+    grid-column: 2/ -2;
+  }
+  @include desktop {
+    position: relative;
+    justify-self: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    grid-row: 2 / -2;
+    grid-column: 3/ 4;
+  }
+  @include large {
+    margin-left: 200px;
+  }
+  
+  a {
+    border: none;
+    background: transparent;
+    padding: 10px;
+    cursor: pointer;
+    width: max-content;
+    &:hover{
+      color: $primary-color
+    }
+    svg{
+      width: 50px;
+      margin-left: 10px;
+      height: 50px;
+      @include tablet{
+        animation: 20s rotation infinite 1s reverse  linear forwards;
+        width: 100px;
+        height:100px;
+      }
+      @include desktop{
+        animation: 20s rotation infinite 1s reverse  linear forwards;
+        width: 100px;
+        height: 100px;
+      }
+      @include large {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+  .button-top {
+    padding: 0px;
+    @include tablet {
+      padding-bottom: 60px;
+      transform-origin: bottom center;
+      animation: 20s rotation infinite 1s   linear forwards;
+    }
+    @include desktop{
+      padding-bottom: 60px;
+      transform-origin: bottom center;
+      animation: 20s rotation infinite 1s   linear forwards;
+    }
+    @include large {
+      padding-bottom: 100px;
+    }
+  }
+  .button-bottom {
+    padding: 0px;
+    @include tablet {
+      transform-origin: top center;
+      animation: 20s rotation infinite 1s   linear forwards;
+      padding-top: 60px;
+    }
+    @include desktop{
+      transform-origin: top center;
+      animation: 20s rotation infinite 1s   linear forwards;
+      padding-top: 60px;
+    }
+    @include large {
+      padding-top: 100px;
+    }
+  }
+  
+
+  .contact-social-divder {
+    display: none;
+    width: 10%;
+    height: 4px;
+    @include tablet {
+      display: flex;
+      width: 60%;
+      height: 3px;
+      animation: 20s rotation infinite 1s linear forwards;
+    }
+    @include desktop{
+      display: flex;
+      width: 70%;
+      height: 3px;
+      animation: 20s rotation infinite 1s linear forwards;
+    }
+    @include large {
+      width: 100%;
+      height: 4px;
+    }
+    background-color: $black-color;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
+
+

@@ -3,7 +3,7 @@
 @use "../public/static/styles/fonts";
 @use "../public/static/styles/animation";
 
-.main {
+.root {
   width: 100%;
   display: grid;
   min-height: 100vh;
@@ -15,7 +15,7 @@
   }
 
   @include tablet {
-    grid-template-rows: 25vh 45vh auto;
+    grid-template-rows: 20vh 40vh auto;
     grid-template-columns: 17.5% 65% 17.5%;
   }
 
