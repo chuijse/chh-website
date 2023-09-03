@@ -2,11 +2,34 @@
 import { useRef, useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 
+const initValues = { name: "", email: "", massage: "" };
+
 export default function ContactForm() {
+  const [state, setSatet] = useState(initValues);
   const textRef = useRef();
   const form = useRef();
   const [value, setValue] = useState();
   const [buttonMessage, setButtonMassege] = useState("Enviar");
+
+  /*const handleChange = (event) => {
+    setValue(event.target.value);
+  };*/
+
+  /*const values = state;
+  console.log(values);
+
+  const handleChange = ({ target }) => {
+    setValue((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
+    console.log(target.value);
+  };
+
+  */
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -20,10 +43,10 @@ export default function ContactForm() {
     }
   }, [value]);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
-    emailjs
+    await emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
@@ -50,7 +73,13 @@ export default function ContactForm() {
       onSubmit={sendEmail}
     >
       <div className="input_half">
-        <input name="user_name" required placeholder="Escriba aquí*" />
+        <input
+          name="user_name"
+          required
+          placeholder="Escriba aquí*"
+          //value={values.name}
+          //onChange={handleChange}
+        />
         <label htmlFor="user_name">Nombre:</label>
       </div>
       <div className="input">
