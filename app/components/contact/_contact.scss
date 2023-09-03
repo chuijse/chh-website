@@ -11,13 +11,15 @@
   //border: 1px solid red;
 
   @include phone {
-    grid-template-rows: 5vh 80vh 10vh 5vh;
-    grid-template-columns: 10% 80% 10%;
+    min-height: 100vh;
+    grid-template-rows: 10vh 600px 120px  10vh;
+    grid-template-columns: 15% 70% 15%;
   }
 
   @include tablet {
-    grid-template-rows: 10vh 47vh 38vh 5vh;
-    grid-template-columns: 17.5% 65% 17.5%;
+    min-height: 100vh;
+    grid-template-rows: auto 550px 350px auto;
+    grid-template-columns: 20% 60% 20%;
   }
 
   @include desktop {
@@ -239,6 +241,7 @@
 
 .contact-icons-root {
   position: absolute;
+  align-self: end;
   justify-self: start;
   grid-row: 3 / 4;
   grid-column: 2 / -2;
@@ -246,8 +249,10 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-end;
+  gap: 30px;
   
   @include tablet {
+    align-self: end;
     position: relative;
     justify-self: auto;
     flex-direction: column;
@@ -255,8 +260,12 @@
     align-items: center;
     grid-row: 3 / 4;
     grid-column: 2/ -2;
+    //height: 100%;
+    gap: 0px;
+
   }
   @include desktop {
+    align-self: center;
     position: relative;
     justify-self: auto;
     flex-direction: column;
@@ -265,6 +274,7 @@
     margin-left: 50px;
     grid-row: 2 / -2;
     grid-column: 3/ 4;
+    gap: 0px;
   }
   @include large {
     margin-left: 200px;
@@ -280,9 +290,8 @@
       color: $primary-color
     }
     svg{
-      width: 50px;
-      margin-left: 10px;
-      height: 50px;
+      width: 80px;
+      height: 80px;
       @include tablet{
         animation: 20s rotation infinite 1s reverse  linear forwards;
         width: 100px;
@@ -302,7 +311,7 @@
   .button-top {
     padding: 0px;
     @include tablet {
-      padding-bottom: 60px;
+      padding-bottom: 40px;
       transform-origin: bottom center;
       animation: 20s rotation infinite 1s   linear forwards;
     }
@@ -320,7 +329,7 @@
     @include tablet {
       transform-origin: top center;
       animation: 20s rotation infinite 1s   linear forwards;
-      padding-top: 60px;
+      padding-top: 40px;
     }
     @include desktop{
       transform-origin: top center;
