@@ -1,6 +1,6 @@
-export async function sendEmail(data) {
+export async function sendEmail(data, setButtonMassege) {
   const apiEndpoint = "/api/email";
-  console.log(JSON.stringify(data));
+  //console.log(JSON.stringify(data));
 
   await fetch(apiEndpoint, {
     method: "POST",
@@ -8,7 +8,7 @@ export async function sendEmail(data) {
   })
     .then((res) => res.json())
     .then((response) => {
-      alert(response.message);
+      setButtonMassege("Enviado");
     })
     .catch((err) => {
       alert(err);

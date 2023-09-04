@@ -4,29 +4,19 @@ import emailjs from "emailjs-com";
 import { useForm } from "react-hook-form";
 import { sendEmail } from "../../utils/send-email";
 
-const initValues = { name: "", email: "", massage: "" };
+const initValues = { name: "", email: "", message: "" };
 
 export default function ContactForm() {
   const [state, setState] = useState(initValues);
   const textRef = useRef();
-  const form = useRef();
-  const [values, setValues] = useState();
   const [buttonMessage, setButtonMassege] = useState("Enviar");
-  const [name, setName] = useState();
+  const [value, setValue] = useState();
 
-  const handleChange = (event) => {
-    console.log(event.target.value);
-    //setValue(event.target.value);
-  };
+  async function onSubmit(event) {
+    event.preventDefault();
+    sendEmail(state, setButtonMassege);
+  }
 
-  console.log(state);
-
-  /*
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };*/
-
-  /*
   useEffect(() => {
     if (textRef && textRef.current) {
       textRef.current.style.height = "0px";
@@ -35,41 +25,14 @@ export default function ContactForm() {
     }
   }, [value]);
 
-  const sendEmail = async (e) => {
-    e.preventDefault();
-
-    await emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        form.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setButtonMassege("enviado");
-        },
-        (error) => {
-          console.log(error.text);
-          alert("Error sending message, try again later");
-        }
-      );
+  const handleChange = (event) => {
+    setValue(event.target.value);
   };
-  */
 
-  async function onSubmit(event) {
-    event.preventDefault();
-    sendEmail(state);
-  }
+  //console.log(state);
 
   return (
-    <form
-      className="contact-form"
-      autoComplete="off"
-      ref={form}
-      onSubmit={onSubmit}
-    >
+    <form className="contact-form" autoComplete="off" onSubmit={onSubmit}>
       <div className="input_half">
         <input
           name="user_name"
@@ -95,12 +58,17 @@ export default function ContactForm() {
           name="message"
           required
           placeholder="Escriba aquí"
-          onChange={(e) => setState({ ...state, massage: e.target.value })}
+          onChange={
+            ((e) => setState({ ...state, message: e.target.value }),
+            handleChange)
+          }
           ref={textRef}
         />
         <label htmlFor="message">Mensaje:</label>
       </div>
-      <input type="submit" className="input_button"></input>
+      <button type="submit" className="input_button">
+        {buttonMessage}
+      </button>
     </form>
   );
 }
