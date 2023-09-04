@@ -9,6 +9,8 @@ export async function POST(request: NextRequest) {
     service: "smtp.gmail.com",
     secure: false,
     port: 465,
+    logger: true,
+    ignoreTLS: true,
     /* 
       setting service as 'gmail' is same as providing these setings:
       host: "smtp.gmail.com",
