@@ -1,8 +1,8 @@
-export function sendEmail(data) {
+export async function sendEmail(data) {
   const apiEndpoint = "/api/email";
   console.log(JSON.stringify(data));
 
-  fetch(apiEndpoint, {
+  await fetch(apiEndpoint, {
     method: "POST",
     body: JSON.stringify(data),
   })

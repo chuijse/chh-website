@@ -4,7 +4,7 @@ import emailjs from "emailjs-com";
 import { useForm } from "react-hook-form";
 import { sendEmail } from "../../utils/send-email";
 
-const initValues = { name: "", email: "", message: "" };
+const initValues = { name: "", email: "", massage: "" };
 
 export default function ContactForm() {
   const [state, setState] = useState(initValues);
@@ -95,7 +95,7 @@ export default function ContactForm() {
           name="message"
           required
           placeholder="Escriba aquí"
-          onChange={(e) => setState({ ...state, message: e.target.value })}
+          onChange={(e) => setState({ ...state, massage: e.target.value })}
           ref={textRef}
         />
         <label htmlFor="message">Mensaje:</label>
