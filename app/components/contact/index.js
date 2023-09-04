@@ -8,7 +8,8 @@ export default function Contact() {
       <div className="contact-header">
         <h3 className="contact-title">Contacto</h3>
         <p className="contact-description">
-          Te invito a escribirme a través de este formulario
+          Te invito a escribirme a través de este formulario o visitar mis redes
+          sociales.
         </p>
         <ContactForm />
       </div>
