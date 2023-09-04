@@ -6,12 +6,12 @@ export async function POST(request: NextRequest) {
   const { email, name, message } = await request.json();
 
   const transport = nodemailer.createTransport({
-    service: "smtp.gmail.com",
+    service: "gmail",
     host: "chh.work",
-    secure: false,
+    //secure: true,
     port: 465,
-    logger: true,
-    ignoreTLS: true,
+    //logger: true,
+    //ignoreTLS: true,
     /* 
       setting service as 'gmail' is same as providing these setings:
       host: "smtp.gmail.com",
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     text: message,
   };
 
-  const sendMailPromise = () =>
+  const sendMailPromise = async () =>
     new Promise<string>((resolve, reject) => {
       transport.sendMail(mailOptions, function (err) {
         if (!err) {
