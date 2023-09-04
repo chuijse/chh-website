@@ -25,11 +25,12 @@ export default function ContactForm() {
     }
   }, [value]);
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const textAreaHandleChange = (event) => {
+    setState({ ...state, message: event.target.value }),
+      setValue(event.target.value);
   };
 
-  //console.log(state);
+  console.log(state);
 
   return (
     <form className="contact-form" autoComplete="off" onSubmit={onSubmit}>
@@ -58,10 +59,7 @@ export default function ContactForm() {
           name="message"
           required
           placeholder="Escriba aquí"
-          onChange={
-            ((e) => setState({ ...state, message: e.target.value }),
-            handleChange)
-          }
+          onChange={(e) => textAreaHandleChange(e)}
           ref={textRef}
         />
         <label htmlFor="message">Mensaje:</label>
