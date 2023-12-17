@@ -1,0 +1,48 @@
+@use "../../../public/static/styles/colors" as *;
+@use "../../../public/static/styles/responsive" as *;
+@use "../../../public/static/styles/fonts";
+@use "../../../public/static/styles/animation";
+@use "../../../public/static/styles/grids" as *;
+
+
+.aptitudes-root{
+    @include root-gird {
+        @include large {
+            grid-template-rows: 20vh 60vh 20vh;
+        }
+    }
+}
+
+.aptitudes-title {
+    -webkit-user-select: none;
+    user-select: none;
+    margin: 0px;
+    font-size: 23.3vw;
+    color: #00000004;
+    grid-row: 2 / 3;
+    grid-column: 1 / -1; 
+}
+
+.aptitudes-strengths{
+    grid-row: 2 / 3;
+    grid-column: 2 / -2; 
+}
+
+.aptitudes-item-root {    
+
+    h3 {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 62px;
+        font-weight: 200;
+        text-transform: none;
+    }
+    
+    p{
+        //position: absolute;
+        font-family: "IBM Plex Sans", monospace;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        text-wrap: nowrap;
+    }
+}

@@ -118,6 +118,7 @@
   @include large {
     display: block;
     align-items: flex-end;
+    
     grid-row: 3 / 4;
     grid-column: 2 / -2;
   }
@@ -146,9 +147,10 @@
     @include desktop {
       translate: 0px 0px;
       padding-left: 0px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 30px;
+      padding-bottom: 30px;
       padding-right: 15px;
+      line-height: 100% ;
 
       @include animation.from-bottom {
         animation-delay: 1s;

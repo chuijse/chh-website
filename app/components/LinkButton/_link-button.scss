@@ -1,0 +1,66 @@
+@use "../../../public/static/styles/colors" as *;
+@use "../../../public/static/styles/responsive" as *;
+@use "../../../public/static/styles/fonts";
+@use "../../../public/static/styles/animation";
+
+.link-button-root {
+    display: flex;
+    align-items: center;
+    font-family: "Share Tech", sans-serif;
+    margin-top: 15px;
+    background-color: transparent;
+    border: none;
+    
+    @include desktop {
+      margin-top: 25px;
+    }
+
+    @include large {
+      margin-top: 30px;
+    }
+
+    & a {
+      display: flex;
+      align-items: center;
+      font-family: "Share Tech", sans-serif;
+      color: $primary-color;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      text-decoration: none;
+      font-size: 18px;
+
+      @include tablet {
+        font-size: 24px;
+      }
+
+      @include desktop {
+        font-size: 20px;
+      }
+
+      @include large {
+        font-size: 24px;
+      }
+
+      & div {
+        position: relative;
+        width: 15px;
+        height: 14px;
+        margin-left: 5px;
+  
+        @include tablet {
+          width: 20px;
+          height: 19px;
+        }
+  
+        @include desktop {
+          width: 18px;
+          height: 17px;
+        }
+  
+        @include large {
+          width: 20px;
+          height: 19px;
+        }
+      }
+    }
+  }
