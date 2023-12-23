@@ -1,6 +1,7 @@
 export const strengths = [
   {
     main: "Diseño Industrial",
+    baseVelocity: -3,
     categories: [
       "Design thinking",
       "Digital manufacturing",
@@ -24,6 +25,7 @@ export const strengths = [
   },
   {
     main: "UX / UI",
+    baseVelocity: -6,
     categories: [
       "Design thinking",
       "User experience",
@@ -38,6 +40,7 @@ export const strengths = [
   },
   {
     main: "Software developer",
+    baseVelocity: -4,
     categories: [
       "Fronted Develop",
       "Mobile App Develop",
@@ -61,6 +64,7 @@ export const strengths = [
   },
   {
     main: "Docencia",
+    baseVelocity: -4,
     categories: [
       "Design thinking",
       "User Experince",

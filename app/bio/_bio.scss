@@ -8,6 +8,7 @@
      .header {
         display: grid;
         border: "1px solid red";
+        height: 110vh;
         @include large {
             grid-template-rows: 25vh 60vh 15vh;
             grid-template-columns: 12.5% 35% 40% 12.5%;
