@@ -1,7 +1,6 @@
 import Image from "next/image";
 import LinkButton from "../components/LinkButton";
 import Contact from "../components/contact";
-import Aptitude from "./Aptitude";
 import "./_bio.scss";
 
 export default function Bio() {
@@ -42,7 +41,6 @@ export default function Bio() {
           </div>
         </div>
       </section>
-      <Aptitude />
       <Contact />
     </main>
   );

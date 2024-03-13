@@ -1,18 +1,53 @@
+"use client";
+import React, { useState } from "react";
 import ContactForm from "./ContactFoms";
+import { sendEmail } from "../utils/send-email";
+import { motion } from "framer-motion";
 import "./_contact.scss";
 
+const initValues = { name: "", email: "", message: "" };
+
 export default function Contact() {
+  const [state, setState] = useState(initValues);
+  const [buttonMessage, setButtonMassege] = useState("Enviar mensaje");
+
+  console.log(state);
+
+  async function onSubmit(event) {
+    event.preventDefault();
+    sendEmail(state, setButtonMassege);
+  }
+
   return (
-    <section className="contact-root">
-      <div className="contact-header">
-        <h3 className="contact-title">Contacto</h3>
-        <p className="contact-description">
-          Te invito a escribirme a través de este formulario o visitar mis redes
-          sociales.
-        </p>
-        <ContactForm />
-      </div>
-      <div className="contact-icons-root">
+    <section>
+      <motion.section
+        className="contact-root"
+        initial={{ clipPath: "inset(0% 0% 100% 0%)", y: "100%" }}
+        animate={{ clipPath: "inset(0% 0% 0% 0%)", y: "0" }}
+        exit={{ clipPath: "inset(100% 0% 0% 0%)", y: "100%" }}
+        transition={{ duration: 1 }}
+      >
+        <div className="contact-header">
+          <motion.h1 className="contact-title">Contacto</motion.h1>
+          <button
+            type="submit"
+            onClick={(e) => onSubmit(e)}
+            className="input_button"
+          >
+            {buttonMessage}
+          </button>
+        </div>
+
+        <div className="contact-form">
+          <ContactForm state={state} setState={setState} />
+        </div>
+      </motion.section>
+    </section>
+  );
+}
+
+{
+  /*<div className="contact-icons-root">
         <a
           className="button-top"
           href="https://www.linkedin.com/in/cristianhuijse/"
@@ -50,7 +85,5 @@ export default function Contact() {
             />
           </svg>
         </a>
-      </div>
-    </section>
-  );
+      </div> */
 }

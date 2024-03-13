@@ -1,55 +1,19 @@
 "use client";
-import React, { useState, useRef, use } from "react";
+import React, { useState, useRef } from "react";
 import {
   motion,
   useAnimationFrame,
   useMotionValue,
   useTransform,
   AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-  useMotionTemplate,
-  useSpring,
 } from "framer-motion";
-//import { wrap } from "@motionone/utils";
 import { strengths } from "./Strengths";
-import Divider from "../../components/Divider";
+import Divider from "../components/Divider";
 import "./_aptitude.scss";
 
 export default function Aptitudes() {
-  const [titleY, setTitleY] = useState(0);
-  const refTitle = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: refTitle,
-    offset: ["start end", "end end"],
-  });
-
-  const springScroll = useSpring(0, { stiffness: 500, damping: 100 });
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log("current: ", scrollYProgress);
-    springScroll.set(latest);
-  });
-
-  useMotionValueEvent(springScroll, "change", (latest) => {
-    console.log(latest);
-    setTitleY(latest * -120);
-  });
-
-  //console.log(scrollYProgress);
-
   return (
-    <section className="aptitudes-root" ref={refTitle}>
-      <h2
-        className="aptitudes-title"
-        style={{
-          transform: `translateY(${titleY}%)`,
-          //marginTop: `${titleY}px`,
-        }}
-      >
-        Aptitudes
-      </h2>
+    <section className="aptitudes-root">
       <div className="aptitudes-strengths">
         {strengths.map((strength) => (
           <Item
@@ -66,7 +30,6 @@ export default function Aptitudes() {
 
 function Item({ main, categories, baseVelocity = -5 }) {
   const [isActive, setActive] = useState(false);
-  const textSize = useRef(null);
 
   const baseX = useMotionValue(0);
   const x = useTransform(baseX, (v) => `${v}%`);
@@ -86,6 +49,10 @@ function Item({ main, categories, baseVelocity = -5 }) {
       className="aptitudes-item-root"
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
+      initial={{
+        marginTop: "10px",
+        marginBottom: "10px",
+      }}
       animate={{
         marginTop: isActive ? "30px" : "10px",
         marginBottom: isActive ? "30px" : "10px",

@@ -39,7 +39,7 @@ export const strengths = [
     ],
   },
   {
-    main: "Software developer",
+    main: "Desarrollador de Software",
     baseVelocity: -4,
     categories: [
       "Fronted Develop",

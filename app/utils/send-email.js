@@ -8,7 +8,7 @@ export async function sendEmail(data, setButtonMassege) {
   })
     .then((res) => res.json())
     .then((response) => {
-      setButtonMassege("Enviado");
+      setButtonMassege("mensaje Enviado");
     })
     .catch((err) => {
       alert(err);

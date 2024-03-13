@@ -1,4 +1,7 @@
+
 import "./globals.scss";
+import Nav from "./Nav";
+
 /*import { Share_Tech } from "next/font/google";
 import { IBM_Plex_Sans } from "next/font/google";
 import { IBM_Plex_Mono } from "next/font/google";
@@ -50,7 +53,10 @@ export default function RootLayout({ children }) {
       <body
       //className={`${share_tech.className} ${ibm_plex_sans.className} ${ibm_plex_mono}`}
       >
+        <Nav />
+        
         {children}
+       
       </body>
     </html>
   );

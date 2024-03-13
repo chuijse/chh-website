@@ -1,43 +1,27 @@
-@use "../../../public/static/styles/colors" as *;
-@use "../../../public/static/styles/responsive" as *;
-@use "../../../public/static/styles/fonts";
-@use "../../../public/static/styles/animation";
+@use "../../public/static/styles/colors" as *;
+@use "../../public/static/styles/responsive" as *;
+@use "../../public/static/styles/fonts";
+@use "../../public/static/styles/animation";
+@use "../../public/static/styles/grids" as *;
 
 .contact-root {
-  position: relative;
-  width: 100%;
-  display: grid;
-  //height: 100vh;
-  //border: 1px solid red;
-
-  @include phone {
-    min-height: 100vh;
-    grid-template-rows: 10vh 600px 120px  10vh;
-    grid-template-columns: 15% 70% 15%;
-  }
-
-  @include tablet {
-    min-height: 100vh;
-    grid-template-rows: auto 550px 350px auto;
-    grid-template-columns: 20% 60% 20%;
-  }
-
-  @include desktop {
-    height: 100%;
-    grid-template-rows: 15vh 75vh 10vh;
-    grid-template-columns: 10% 45% 35% 10%;
-  }
-
-  @include large {
-    grid-template-rows: 20vh 60vh 20vh;
-    grid-template-columns: 12.5% 40% 35% 12.5%;
+  z-index: -150;
+   @include root-gird {
+     background-color: #000;    
+    @include large {
+      overflow: hidden;
+        grid-template-rows: 20vh 60vh 20vh;
+        grid-template-columns: 10% 37.5% 52.5% !important;
+    }
   }
 }
 
 .contact-header {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 100px;
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   @include tablet {
@@ -48,24 +32,16 @@
     grid-row: 2 / 3;
     grid-column: 2 / 3;
   }
-
   .contact-title {
-    @include animation.from-bottom {
-      animation-delay: 0.5s;
-    }
-  }
-
-  .contact-description {
-    //border: 1px solid blue;
-    margin-left: 0px;
-    margin-top: 10px;
-    @include animation.from-top{ 
-      animation-delay: 1s;
-    }
-    @include tablet {
-    }
-  }
-  
+    margin: 0px;
+    margin-bottom: 30px;
+    color: #FFF;
+    font-size: 150px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 100%; /* 200px */
+    text-transform: capitalize;
+  }  
 }
 
 
@@ -80,35 +56,35 @@
     border: none;
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 96px;
+    color: $white-color;
     padding-bottom: 5px;
-    background-color: white;
-    //transition: border-color 0.5s;
-    border-bottom-style: solid ;
-    border-bottom-width: 2px;
-    border-color: $black-color;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    padding-top: 5px;
+    padding-bottom: 30px;
     @include tablet {
       font-size: 21px;
     }
     @include desktop {
-      font-size: 21px;
+      font-size: 58px;
     }
-    &::placeholder {
-      
-      font-size: 15px;
+    
+    &::placeholder { 
+      font-size: 58px;
       transition: color 0.5s;
-      font-family: "IBM Plex Mono", sans-serif;
+      font-family: "IBM Plex Sans", sans-serif;
+      color: $white-color;
     }
     &:focus {
       outline: none;
       border: none;
       font-style: normal;
-      border-bottom-style: solid ;
-      border-bottom-width: 2px;
-      border-color: $primary-color;
+      color: $primary-color;
+      border-bottom: 0.5px solid $primary-color;
       &::placeholder {
         color: $primary-color;
-        font-family: "IBM Plex Mono", sans-serif;
+        font-family: "IBM Plex Sans", sans-serif;
       }
     }
     &:placeholder-shown {
@@ -117,53 +93,45 @@
   }
   textarea {
     font-family: "IBM Plex Sans", sans-serif;
+    background-color: transparent;
+    color: $white-color;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 48px;
+    height: max-content;
     resize: none;
-    height: min-content;
     border: none;
-    //background-color: white;
-    transition: border-color 0.5s;
-    border-bottom-style: solid ;
-    border-bottom-width: 2px;
-    border-color: $black-color;
+    border-bottom: 1px solid white;
+    padding-top: 5px;
     &::placeholder {
-      font-size: 16px;
+      font-size: 48px;
       transition: color 0.3s;
-      font-family: "IBM Plex Mono", sans-serif;
+      font-family: "IBM Plex Sans", sans-serif;
       font-style: italic;
+      text-transform: capitalize;
+      color: $white-color;
     }
     &:focus {
       outline: none;
       border: none;
-      border-bottom-style: solid ;
-      border-bottom-width: 2px;
-      border-color: $primary-color;
+      color: $primary-color;
+      border-bottom: 1px solid $primary-color;
       &::placeholder {
+        font-family: "IBM Plex Sans", sans-serif;
         color: $primary-color;
-        font-family: "IBM Plex Mono", sans-serif;
       }
     }
   }
 
   label {
     padding-top: 6px;
-    font-family: "IBM Plex Mono", sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1.2px;
+    color: $primary-color;
+    font-family: "IBM Plex Sans", sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+    //letter-spacing: 1.5px;
     transition: color 0.5s;
-    
   }
-
-  input:focus + label {
-    color: $primary-color;
-  }
-
-  textarea:focus + label {
-    color: $primary-color;
-  }
-
   @content;
 }
 
@@ -172,18 +140,13 @@
 .contact-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
   //gap: 60px;
   width: 100%;
   height: 100%;
   grid-row: 2 / 3;
-  grid-column: 2 / 3;
-  
-
-  @include animation.from-top {
-    animation-delay: 2s;
-  }
+  grid-column: 3 / 4;
   
   .input {
     @include input
@@ -201,7 +164,7 @@
   }
 
   .input_textarea {
-    height: 20%;
+    height: 30%;
     justify-content: flex-end !important;
     @include input {
       @include tablet {

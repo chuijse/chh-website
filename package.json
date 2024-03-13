@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
+    "@react-email/components": "0.0.12",
+    "@react-email/render": "^0.0.10",
     "@types/nodemailer": "^6.4.9",
     "@types/nodemailer-smtp-transport": "^2.7.5",
     "dotenv": "^16.3.1",
@@ -22,6 +24,7 @@
     "nodemailer-smtp-transport": "^2.7.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-email": "1.10.0",
     "react-hook-form": "^7.46.0",
     "resend": "^1.0.0",
     "sass": "^1.63.6"
